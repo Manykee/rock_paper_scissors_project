@@ -1,12 +1,39 @@
 // Get computer choice function
 
 function getComputerChoice() {
-    let choice = ["Rock", "Paper", "Scissor"];
+    let choice = ["rock", "paper", "scissor"];
     let number = Math.floor(Math.random() * choice.length);
     return choice[number];
 }
-// Write a function to play a single round of the game
 // Get the player's selection, case-insesitive
-// Get computer's selection
+
+function getPlayerChoice() {
+    let choice = prompt("Rock, Paper or Scissors").toLowerCase();
+    return choice;
+}
+
+// Write a function to play a single round of the game
+
+function playRound(playerSelection, computerSelection) {
+    
+    if (playerSelection === "rock" && computerSelection === "paper") {
+        return "You lose! Paper beats Rock.";
+    } else if (playerSelection === "rock"  && computerSelection === "scissors") {
+        return "You win! Rock beats Scissors.";
+    } else if (playerSelection === "paper"  && computerSelection === "rock") {
+        return "You win! Paper beats Rock.";
+    } else if (playerSelection === "paper"  && computerSelection === "scissors") {
+        return "You lose! Scissors beats Paper.";
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return "You lose! Rock beats Scissors.";
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        return "You win! Schissors beats paper";
+    } else {
+        return `It's a draw! ${playerSelection} can't beat ${computerSelection}`;
+    }
+}
+    let playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
+
 // Return a string with "You loose!" or "You win!"
 // Write a function to loop the game for 5 times
