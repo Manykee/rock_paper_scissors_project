@@ -1,19 +1,13 @@
-// Get computer choice function
-
 function getComputerChoice() {
     let choice = ["rock", "paper", "scissors"];
     let number = Math.floor(Math.random() * choice.length);
     return choice[number];
 }
-// Get the player's selection, case-insesitive
 
 function getPlayerChoice() {
     let choice = prompt("Rock, Paper or Scissors").toLowerCase();
     return choice;
 }
-
-// Write a function to play a single round of the game
-// Return a string with "You loose!" or "You win!"
 
 function playRound(playerSelection, computerSelection) {
     
@@ -40,7 +34,4 @@ function playRound(playerSelection, computerSelection) {
     let playerSelection = getPlayerChoice();
     let computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
-
-
-// Write a function to loop the game for 5 times
 
