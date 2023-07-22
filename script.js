@@ -16,17 +16,17 @@ function getPlayerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     
-    if (playerSelection === "rock" && computerSelection === "paper") {
+    if (playerSelection == "rock" && computerSelection == "paper") {
         return "You lose! Paper beats Rock.";
-    } else if (playerSelection === "rock"  && computerSelection === "scissors") {
+    } else if (playerSelection == "rock"  && computerSelection == "scissors") {
         return "You win! Rock beats Scissors.";
-    } else if (playerSelection === "paper"  && computerSelection === "rock") {
+    } else if (playerSelection == "paper"  && computerSelection == "rock") {
         return "You win! Paper beats Rock.";
-    } else if (playerSelection === "paper"  && computerSelection === "scissors") {
+    } else if (playerSelection == "paper"  && computerSelection == "scissors") {
         return "You lose! Scissors beats Paper.";
-    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    } else if (playerSelection == "scissors" && computerSelection == "rock") {
         return "You lose! Rock beats Scissors.";
-    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
         return "You win! Schissors beats paper";
     } else {
         return `It's a draw! ${playerSelection} can't beat ${computerSelection}`;
@@ -34,6 +34,7 @@ function playRound(playerSelection, computerSelection) {
 }
     let playerSelection = getPlayerChoice();
     let computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
 
 // Return a string with "You loose!" or "You win!"
 // Write a function to loop the game for 5 times
