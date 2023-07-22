@@ -28,8 +28,10 @@ function playRound(playerSelection, computerSelection) {
         return "You lose! Rock beats Scissors.";
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         return "You win! Schissors beats paper";
-    } else {
+    } else if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
         return `It's a draw! ${playerSelection} can't beat ${computerSelection}`;
+    } else {
+        return `Try again! ${playerSelection} it's not rock, paper or scissors.`;
     }
 }
     let playerSelection = getPlayerChoice();
