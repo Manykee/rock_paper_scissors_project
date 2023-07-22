@@ -1,7 +1,7 @@
 // Get computer choice function
 
 function getComputerChoice() {
-    let choice = ["rock", "paper", "scissor"];
+    let choice = ["rock", "paper", "scissors"];
     let number = Math.floor(Math.random() * choice.length);
     return choice[number];
 }
@@ -13,6 +13,7 @@ function getPlayerChoice() {
 }
 
 // Write a function to play a single round of the game
+// Return a string with "You loose!" or "You win!"
 
 function playRound(playerSelection, computerSelection) {
     
@@ -34,9 +35,10 @@ function playRound(playerSelection, computerSelection) {
         return `Try again! ${playerSelection} it's not rock, paper or scissors.`;
     }
 }
-    let playerSelection = getPlayerChoice();
+    let playerSelection = "rock";
     let computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
 
-// Return a string with "You loose!" or "You win!"
+
 // Write a function to loop the game for 5 times
+
