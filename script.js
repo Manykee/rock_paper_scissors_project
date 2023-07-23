@@ -31,7 +31,10 @@ function playRound(playerSelection, computerSelection) {
         return `Try again! ${playerSelection} it's not rock, paper or scissors.`;
     }
 }
-    let playerSelection = getPlayerChoice();
+    let playerSelection = "rock";
     let computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
