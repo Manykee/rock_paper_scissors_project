@@ -25,7 +25,6 @@ btns.forEach((btn) => {
 
 // PLay one round - not there yet
 function playRound(playerSelection, getComputerChoice) {
-//let playRound = function(playerSelection,getComputerChoice) 
     
     if (playerSelection == "rock" && getComputerChoice == "paper") {
         return "You lose! Paper beats Rock.";
