@@ -8,13 +8,17 @@ function getComputerChoice() {
 document.addEventListener('DOMContentLoaded', function() {
 
 let btns = document.querySelectorAll("button");
+let pScore = document.querySelector("#playerScore");
+let cScore = document.querySelector("#computerScore");
 
 // Get the value of the pressed button - working
 btns.forEach((btn) => {
     btn.addEventListener("click", function(e) {
         let playerSelection = e.target.value;
-        console.log(playRound(playerSelection, getComputerChoice()));
         let result = document.querySelector("#result")
+        while (result.firstChild) {
+            result.removeChild(result.firstChild);
+        }
         let para = document.createElement("p");
         let text = document.createTextNode(playRound(playerSelection, getComputerChoice()));
         para.appendChild(text);
@@ -23,7 +27,7 @@ btns.forEach((btn) => {
 });
 
 
-// PLay one round - not there yet
+// PLay one round - working
 function playRound(playerSelection, getComputerChoice) {
     
     if (playerSelection == "rock" && getComputerChoice == "paper") {
