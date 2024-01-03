@@ -5,21 +5,31 @@ function getComputerChoice() {
     return choice[number];
 };
 
-/*let pScore = document.getElementById("playerScore").innerHTML;
-let cScore = document.getElementById("computerScore").innerHTML;*/
 
-//Set player score - not working
+//Set player score - working
 function setPlayerScore() {
     document.getElementById("playerScore").innerHTML = (parseInt(document.getElementById("playerScore").innerHTML)) + 1;
 };
 
-//Set computer score - not working
+//Set computer score - working
 function setComputerScore(){
     document.getElementById("computerScore").innerHTML = (parseInt(document.getElementById("computerScore").innerHTML)) + 1;
 };
 
 
-let btns = document.querySelectorAll("button");
+let btns = document.querySelectorAll(".btn");
+let resetBtn = document.getElementById("resetBtn");
+
+//Reset button press - working
+resetBtn.addEventListener("click", resetBtnClicked);
+function resetBtnClicked() {
+    resetBtn.style.display = "none";
+    btns.forEach((btn) => {
+        btn.style.display = "inline";
+        document.getElementById("playerScore").innerHTML = 0;
+        document.getElementById("computerScore").innerHTML = 0;
+    });
+} 
 
 
 // Get the value of the pressed button - working
@@ -29,36 +39,67 @@ btns.forEach((btn) => {
         let result = document.querySelector("#result")
         while (result.firstChild) {
             result.removeChild(result.firstChild);
-        }
-        let para = document.createElement("p");
+        }       
+        let para = document.createElement("p");     
         let text = document.createTextNode(playRound(playerSelection, getComputerChoice()));
         para.appendChild(text);
         result.appendChild(para);
     });
 });
 
+//Show the reset button and hide the selection Buttons - working
+function buttonToggle() {
+    resetBtn.style.display = "block";
+    btns.forEach((btn) => {
+        btn.style.display = "none";
+    });
+};
 
 // PLay one round - working
 function playRound(playerSelection, getComputerChoice) {
-    
+
     if (playerSelection == "rock" && getComputerChoice == "paper") {
         setComputerScore();
-        return "You lose! Paper beats Rock.";
+        if ((document.getElementById("computerScore").innerHTML) == 5) {
+            buttonToggle();
+            return "Computer Wins!";
+        } else {
+        return "You lose! Paper beats Rock."};
     } else if (playerSelection == "rock"  && getComputerChoice == "scissors") {
         setPlayerScore();
-        return "You win! Rock beats Scissors.";
+        if ((document.getElementById("playerScore").innerHTML) == 5) {
+            buttonToggle();
+            return "Player Wins!";
+        } else {
+        return "You win! Rock beats Scissors."};
     } else if (playerSelection == "paper"  && getComputerChoice == "rock") {
         setPlayerScore();
-        return "You win! Paper beats Rock.";
+        if ((document.getElementById("playerScore").innerHTML) == 5) {
+            buttonToggle();
+            return "Player Wins!";
+        } else {
+        return "You win! Paper beats Rock."};
     } else if (playerSelection == "paper"  && getComputerChoice == "scissors") {
         setComputerScore();
-        return "You lose! Scissors beats Paper.";
+        if ((document.getElementById("computerScore").innerHTML) == 5) {
+            buttonToggle();
+            return "Computer Wins!";
+        } else {
+        return "You lose! Scissors beats Paper."};
     } else if (playerSelection == "scissors" && getComputerChoice == "rock") {
         setComputerScore();
-        return "You lose! Rock beats Scissors.";
+        if ((document.getElementById("computerScore").innerHTML) == 5) {
+            buttonToggle();
+            return "Computer Wins!";
+        } else {
+        return "You lose! Rock beats Scissors."};
     } else if (playerSelection == "scissors" && getComputerChoice == "paper") {
         setPlayerScore();
-        return "You win! Schissors beats paper";
+        if ((document.getElementById("playerScore").innerHTML) == 5) {
+            buttonToggle();
+            return "Player Wins!";
+        } else {
+        return "You win! Schissors beats paper"};
     } else if (playerSelection == "rock" 
             || playerSelection == "paper" 
             || playerSelection == "scissors") {

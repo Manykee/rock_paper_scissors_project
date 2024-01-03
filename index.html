@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <script src="script.js" defer></script>
 </head>
 <body>
     
-    <button type="button" name="rock" value="rock">Rock</button>
-    <button type="button" name="paper" value="paper">Paper</button>  
-    <button type="button" name="scissors" value="scissors">Scissors</button>     
+    <button type="button" class="btn" name="rock" value="rock">Rock</button>
+    <button type="button" class="btn" name="paper" value="paper">Paper</button>  
+    <button type="button" class="btn" name="scissors" value="scissors">Scissors</button>     
 
     <div id="result"></div>
+    <button style="display: none;" id="resetBtn">Reset</button>
 
     <div>
         <h2>Player score</h2>
@@ -24,6 +25,6 @@
         <p id="computerScore">0</p>
     </div>
 
-    <script src="script.js"></script>
+    
 </body>
 </html>
