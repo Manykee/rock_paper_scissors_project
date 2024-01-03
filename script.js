@@ -5,11 +5,22 @@ function getComputerChoice() {
     return choice[number];
 };
 
-document.addEventListener('DOMContentLoaded', function() {
+/*let pScore = document.getElementById("playerScore").innerHTML;
+let cScore = document.getElementById("computerScore").innerHTML;*/
+
+//Set player score - not working
+function setPlayerScore() {
+    document.getElementById("playerScore").innerHTML = (parseInt(document.getElementById("playerScore").innerHTML)) + 1;
+};
+
+//Set computer score - not working
+function setComputerScore(){
+    document.getElementById("computerScore").innerHTML = (parseInt(document.getElementById("computerScore").innerHTML)) + 1;
+};
+
 
 let btns = document.querySelectorAll("button");
-let pScore = document.querySelector("#playerScore");
-let cScore = document.querySelector("#computerScore");
+
 
 // Get the value of the pressed button - working
 btns.forEach((btn) => {
@@ -31,16 +42,22 @@ btns.forEach((btn) => {
 function playRound(playerSelection, getComputerChoice) {
     
     if (playerSelection == "rock" && getComputerChoice == "paper") {
+        setComputerScore();
         return "You lose! Paper beats Rock.";
     } else if (playerSelection == "rock"  && getComputerChoice == "scissors") {
+        setPlayerScore();
         return "You win! Rock beats Scissors.";
     } else if (playerSelection == "paper"  && getComputerChoice == "rock") {
+        setPlayerScore();
         return "You win! Paper beats Rock.";
     } else if (playerSelection == "paper"  && getComputerChoice == "scissors") {
+        setComputerScore();
         return "You lose! Scissors beats Paper.";
     } else if (playerSelection == "scissors" && getComputerChoice == "rock") {
+        setComputerScore();
         return "You lose! Rock beats Scissors.";
     } else if (playerSelection == "scissors" && getComputerChoice == "paper") {
+        setPlayerScore();
         return "You win! Schissors beats paper";
     } else if (playerSelection == "rock" 
             || playerSelection == "paper" 
@@ -50,7 +67,6 @@ function playRound(playerSelection, getComputerChoice) {
         return `Try again! ${playerSelection} it's not rock, paper or scissors.`;
     }
 };
-});
 
 
 
