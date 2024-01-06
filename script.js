@@ -19,11 +19,15 @@ function setComputerScore(){
 
 let btns = document.querySelectorAll(".btn");
 let resetBtn = document.getElementById("resetBtn");
+let result = document.querySelector("#result")
 
 //Reset button press - working
 resetBtn.addEventListener("click", resetBtnClicked);
 function resetBtnClicked() {
     resetBtn.style.display = "none";
+    result.firstChild.setAttribute("id", "winPara");
+    let winParagraf = document.getElementById("winPara");
+    result.removeChild(winParagraf);
     btns.forEach((btn) => {
         btn.style.display = "inline";
         document.getElementById("playerScore").innerHTML = 0;
@@ -35,8 +39,7 @@ function resetBtnClicked() {
 // Get the value of the pressed button - working
 btns.forEach((btn) => {
     btn.addEventListener("click", function(e) {
-        let playerSelection = e.target.value;
-        let result = document.querySelector("#result")
+        let playerSelection = e.target.parentNode.value;     
         while (result.firstChild) {
             result.removeChild(result.firstChild);
         }       
